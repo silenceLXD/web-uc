@@ -1,0 +1,11 @@
+<div class="footer" *ngIf="isShowFooter">
+   	<div class="link text-center">
+       <ul class="list-inline list-unstyled">
+         <li *ngFor="let link of footerLinksArr">
+           <a href="{{link.LINK_URL}}" target="_blank">{{link.LINK_NAME}}</a>
+         </li>
+        </ul>
+       <p>{{ footerCompany }}</p>
+       <p>{{ footerIcp }}</p>
+	</div>
+</div>

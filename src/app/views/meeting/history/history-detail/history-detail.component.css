@@ -1,0 +1,20 @@
+.schedule-Details .list-group-item{
+	overflow: hidden;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e1e1;
+}
+.detail-list-item{
+  overflow: hidden;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e1e1;
+}
+.log-content{
+	max-height: 330px;
+  overflow-y: scroll;
+}
+.vote-view{
+	margin: 8px 0;
+}
+.voteitem{
+	margin-right: 12px;
+}

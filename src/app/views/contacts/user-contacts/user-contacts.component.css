@@ -1,0 +1,9 @@
+.contactsMenuTitle{
+    cursor: pointer;
+    color: #333333;
+    font: 12px/31px 宋体;
+    background-color: #d5d5d5;
+    padding: 7px 0px 7px 20px;
+    /* text-align: center; */
+    padding-left: 30px;
+}

@@ -1,0 +1,68 @@
+{
+  "entName": "中冶云",
+  "entFullName": "北京云起融通科技有限公司",
+  "loginPage": {
+      "titleByPsd": "密码登录",
+      "titleByCode": "扫码登录",
+      "placeholder": {
+          "username": "登录账户为邮箱/手机号",
+          "password": "密 码",
+          "captcha": "验证码"
+      },
+      "forget": "忘记密码",
+      "register": "注册账号",
+      "thirdParty": "微信登录方式"
+  },
+  "register": {
+     "agreement": "《中冶云视频服务条款》"
+   },
+   "footer": {
+     "IS_SHOWFOOTER": false,
+     "FOOTER_COMPANY": "Copyright  {{ fullYear }} 北京云起融通科技有限公司版权所有版权所有.",
+     "FOOTER_LINKS": [
+       {"LINK_NAME": "关于我们", "LINK_URL": "http://www.svocloud.com/index.php?m=default.about"},
+       {"LINK_NAME": "联系我们", "LINK_URL": "http://www.svocloud.com/index.php?m=default.experience"},
+       {"LINK_NAME": "合作伙伴", "LINK_URL": "http://www.svocloud.com/index.php?m=default.cooperativePartner"}
+     ],
+     "FOOTER_ICP": "电信经营许可证：B1-20170708 京ICP备：15004401号 京ICP证：160132号"
+   },
+  "sideBar": {
+    "TAKE_MEETING": "我要开会",
+    "MY_MEETING": "我的会议",
+    "CONTACTS": "通讯录",
+    "MEETING_MANAGEMENT": "企业会议管理",
+    "CONSUMPTION_ENT": "企业消费记录",
+    "ENTERPRISE_DETAIL": "企业管理",
+    "BOOK": "发起会议",
+    "JOIN": "加入会议",
+    "LIVE": "观看直播",
+    "USER_SCHEDULE": "会议日程",
+    "USER_ROOM": "云会议室",
+    "USER_HISTORY": "历史会议",
+    "USER_VIDEO": "视频列表",
+    "USER_CONTACTS": "企业通讯录",
+    "CONFERENCE_MANAGEMENT": "进行中会议管理",
+    "ENT_SCHEDULE": "预约会议管理",
+    "ENT_HISTORY": "历史会议管理",
+    "ENT_ROOM": "云会议室管理",
+    "LIVE": "观看直播",
+    "CONSUMPTION_ALL": "消费总览",
+    "CONSUMPTION_DETAIL": "消费明细",
+    "ENT_CONTACTS": "企业通讯录",
+    "ENT_VIDEO": "视频列表",
+    "ORDER_LIST": "订单管理",
+    "OPERATION_LOG": "操作日志",
+    "CUSTOMIZE": "企业定制",
+    "PRODUCT_LIST": "产品与服务",
+    "MESSAGE": "消息中心",
+    "PERSONAL_CENTER": "个人信息",
+    "PERSONAL_CONSUMPTION": "消费详单",
+    "CHANGE_ADMIN": "更换企业管理员",
+    "CREATE_ENT": "创建企业",
+    "PERSONAL_CONSOLE": "个人控制台",
+    "ADMIN_CONSOLE": "企业控制台",
+    "OVERVIEW": "总览",
+    "ENTER_SETTING": "入会设置",
+    "LOGOUT": "退出登录"
+  }
+}

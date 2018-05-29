@@ -1,0 +1,133 @@
+<form novalidate class="form-horizontal flip in" role="form" id="userForm" [formGroup]="entRegisterForm"
+      (ngSubmit)="postFormData(entRegisterForm.value)">
+  <div class="form-group">
+    <i class="fa fa-building-o"></i>
+    <input type="text" formControlName="entName" [(ngModel)]="inputEntName" (blur)="checkEntNameFn(inputEntName)"
+           class="form-control"
+           maxlength="20" placeholder="请输入企业的全称">
+    <p *ngIf="entRegisterForm.get('entName').valid&&entRegisterForm.get('entName').touched && !entNameRepeat"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('entName').valid||entRegisterForm.get('entName').untouched">
+         <span [hidden]="!entRegisterForm.hasError('required',['entName'])"
+               class="alert-icon validtip-icon">企业是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="!entNameRepeat">
+      <span class="alert-icon validtip-icon">该企业已被注册，请更换企业</span>
+    </p>
+    <!--<p *ngIf="!entRegisterForm.get('entName').hasError('required') && checkEntNameMsg.isCan" class="fa fa-check faisok"></p>
+    <div class="error" style="margin-left:30px;">
+      <p *ngIf="!checkEntNameMsg.isCan&&entRegisterForm.get('entName').value">{{checkEntNameMsg.msg}}</p>
+      <p *ngIf="entRegisterForm.get('entName').hasError('required') &&  entRegisterForm.get('entName').touched"> 企业名称不能为空 </p>
+    </div>-->
+  </div>
+
+  <div class="form-group">
+    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    <input type="email" formControlName="email" [(ngModel)]="inputEmail" class="form-control" placeholder="请填写企业邮箱"
+           (blur)="checkEmailFn(inputEmail)">
+    <p *ngIf="entRegisterForm.get('email').valid&&entRegisterForm.get('email').touched && !emailRepeat"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('email').valid||entRegisterForm.get('email').untouched">
+         <span [hidden]="!entRegisterForm.hasError('required',['email'])"
+               class="alert-icon validtip-icon">邮箱是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('email').valid||entRegisterForm.get('email').pristine">
+         <span [hidden]="!entRegisterForm.hasError('email',['email'])||entRegisterForm.get('email').value==''"
+               class="alert-icon validtip-icon">请输入正确邮箱</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="!emailRepeat">
+      <span class="alert-icon validtip-icon">该邮箱已被注册，请更换邮箱</span>
+    </p>
+    <!-- <p *ngIf="!entRegisterForm.get('email').hasError('required') && checkEmailMsg.isCan" class="fa fa-check faisok"></p>
+     <div class="error" style="margin-left:30px;">
+       <p *ngIf="!checkEmailMsg.isCan&&entRegisterForm.get('email').value">{{checkEmailMsg.msg}}</p>
+       <p *ngIf="entRegisterForm.get('email').hasError('required') &&  entRegisterForm.get('email').touched"> 企业邮箱不能为空 </p>
+     </div>-->
+  </div>
+
+  <div class="form-group pw-group">
+    <i class="fa fa-lock" aria-hidden="true"></i>
+    <input type="password" formControlName="password" class="form-control" placeholder="请输入密码" minlength="6"
+           maxlength="20">
+    <p *ngIf="entRegisterForm.get('password').valid&&entRegisterForm.get('password').touched"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('password').valid||entRegisterForm.get('password').untouched">
+         <span [hidden]="!entRegisterForm.hasError('required',['password'])"
+               class="alert-icon validtip-icon">密码是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('password').valid||entRegisterForm.get('password').pristine">
+         <span [hidden]="!entRegisterForm.hasError('minlength',['password'])||entRegisterForm.get('password').value==''"
+               class="alert-icon validtip-icon">密码长度6-20</span>
+    </p>
+    <!--<p *ngIf="ispwdOK" class="fa fa-check faisok" aria-hidden="true"></p>
+    <p *ngIf="ispwdclose" class="fa fa-close faisclose" aria-hidden="true"></p>
+    <p class="error" style="margin-left:30px;"
+       *ngIf="entRegisterForm.get('password').hasError('required') &&  entRegisterForm.get('password').touched"> 密码不能为空 </p>-->
+  </div>
+
+  <div class="form-group">
+    <i class="fa fa-mobile" aria-hidden="true" style="font-size:18px;"></i>
+    <input type="text" formControlName="mobile" [(ngModel)]="inputMobile" class="form-control" maxlength="11"
+           placeholder="请输入11位手机号码"
+           (blur)="checkPhoneFn(inputMobile)">
+    <p *ngIf="entRegisterForm.get('mobile').valid&&entRegisterForm.get('mobile').touched&&!mobilePhoneRepeat"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('mobile').valid||entRegisterForm.get('mobile').untouched">
+         <span [hidden]="!entRegisterForm.hasError('required',['mobile'])"
+               class="alert-icon validtip-icon">手机号是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="entRegisterForm.get('mobile').valid||entRegisterForm.get('mobile').pristine">
+         <span [hidden]="!entRegisterForm.hasError('mobilePhone',['mobile'])||entRegisterForm.get('mobile').value==''"
+               class="alert-icon validtip-icon">请输入正确手机号</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="!mobilePhoneRepeat">
+      <span class="alert-icon validtip-icon">该手机号码已被注册，请更换手机号码</span>
+    </p>
+    <!--<p *ngIf="!entRegisterForm.get('mobile').hasError('required') && checkPhoneMsg.isCan" class="fa fa-check faisok"></p>
+    <div class="error" style="margin-left:30px;">
+      <p *ngIf="!checkPhoneMsg.isCan&&entRegisterForm.get('mobile').value">{{checkPhoneMsg.msg}}</p>
+      <p *ngIf="entRegisterForm.get('mobile').hasError('required') &&  entRegisterForm.get('mobile').touched"> 手机号码不能为空 </p>
+    </div>-->
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-8 col-xs-9" style="padding: 0;">
+      <i class="fa fa-key" aria-hidden="true" style="left:20px;"></i>
+      <input type="text" id="msgCode" formControlName="verificationCode" class="form-control" maxlength="6"
+             placeholder="请输入验证码">
+      <div class="error" style="margin-left:30px;">
+        <p class="error"><span>{{errorMsg}}</span></p>
+        <!-- <p *ngIf="entRegisterForm.get('verificationCode').hasError('required') &&  entRegisterForm.get('verificationCode').touched">
+          验证码不能为空 </p> -->
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-3">
+      <timer-button class="getCode" [sendType]="3" [phoneNum]="inputMobile"></timer-button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="agreed" style="color:#fff;">
+      <input type="checkbox" id="agreed" formControlName="agreed" [(ngModel)]="isagreed" required
+             style="height: auto;margin-right: 8px;vertical-align: text-bottom;">
+      同意并遵守<a routerLink="/terms-service" target="_blank">{{ 'register.agreement' | translate }}</a>
+    </label>
+    <span *ngIf="!isagreed" style="padding-left: 20px;color: #f00;display: block;"> 请阅读并同意服务条款</span>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="entRegisterForm.invalid||isDesabledButton" class="btn btn-svoc login-btn">注 册
+    </button>
+    <div style="margin-top: 10px;">
+      <p class="pull-right forgetpsd" style="color:#fff;">已有账号？<a routerLink="/login">登 录</a></p>
+    </div>
+  </div>
+</form>

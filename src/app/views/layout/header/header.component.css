@@ -1,0 +1,91 @@
+/*
+* Created by lixuedan on 2017/12/04.
+*/
+/*.navbar-header{
+	background-color:#303847;
+	border: transparent !important;
+  border-radius: 0 !important;
+  color:#fff;
+}*/
+.navbar-header{
+	border: transparent !important;
+  border-radius: 0 !important;
+  color:#fff;
+	background-image: url('../../../../assets/img/header_bg.jpg')!important;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 73px;
+}
+/*默认*/
+.navbarHeaderBlack{
+	background-color:#383838;
+}
+/*科技蓝*/
+.navbarHeaderTechBlur{
+	background-color:#0299CC;
+}
+/*深调蓝*/
+.navbarHeaderBlur{
+	background-color:#2A4795;
+}
+/*稳重暗*/
+.navbarHeaderDark{
+	background-color:#333969;
+}
+/*淡雅绿*/
+.navbarHeaderGreen{
+	background-color:#51AF79;
+}
+
+.navbar-nav>li>a{
+	color: #fff;
+	line-height: 32px;
+  margin-left: 5px;
+}
+.navborderL>li>a:hover,
+.navbar-nav>li>a.header-active{
+	background-color: #2a94de!important;
+}
+
+
+li.user-name ul{
+	position:absolute;
+}
+ul.user-menu{
+background-color: #f5f5f5 !important;
+}
+li.user-name ul.user-menu li a{
+	margin:10px 20px;
+	border-bottom:1px solid #dcd8d8;
+	color:#000 !important;
+}
+.navborderR,
+.navbar-nav>li>a.navborderR{
+	border-right: 1px solid #ececec;
+    padding: 0 8px;
+    margin: 15px 5px;
+  }
+
+	.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+	    background-color: transparent!important;
+				/* background-color: #2a94de!important; */
+	}
+	.header-nav{
+	  /* background: #2a94de; */
+	  border-radius: 5px;
+	  padding: 2px 14px;
+	  margin: 15px 0;
+	}
+	.svoc-badge{
+		position: relative;
+    top: -14px;
+		display: inline-block;
+    background: #2a94de;
+    font-size: 10px;
+    border-radius: 50%;
+    /* padding: 3px; */
+		text-align: center;
+		min-width: 22px;
+		min-height: 22px;
+		line-height: 22px;
+	}

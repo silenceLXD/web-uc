@@ -1,0 +1,90 @@
+<form novalidate class="form-horizontal flip in" role="form" [formGroup]="perRegisterForm"
+      (ngSubmit)="postFormData(perRegisterForm.value)">
+  <div class="form-group">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <input type="text" formControlName="realName" class="form-control" placeholder="请输入姓名" maxlength="30">
+    <p *ngIf="perRegisterForm.get('realName').valid&&perRegisterForm.get('realName').touched"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('realName').valid||perRegisterForm.get('realName').untouched">
+         <span [hidden]="!perRegisterForm.hasError('required',['realName'])"
+               class="alert-icon validtip-icon">姓名是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('realName').valid||perRegisterForm.get('realName').pristine">
+         <span [hidden]="!perRegisterForm.hasError('name',['realName'])||perRegisterForm.get('realName').value==''"
+               class="alert-icon validtip-icon">请输入中文,字母或数字</span>
+    </p>
+  </div>
+  <div class="form-group pw-group">
+    <i class="fa fa-lock" aria-hidden="true"></i>
+    <input type="password" formControlName="password" class="form-control" placeholder="请输入密码" minlength="6"
+           maxlength="20">
+    <p *ngIf="perRegisterForm.get('password').valid&&perRegisterForm.get('password').touched"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('password').valid||perRegisterForm.get('password').untouched">
+       <span [hidden]="!perRegisterForm.hasError('required',['password'])"
+             class="alert-icon validtip-icon">密码是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('password').valid||perRegisterForm.get('password').pristine">
+       <span [hidden]="!perRegisterForm.hasError('minlength',['password'])||perRegisterForm.get('password').value==''"
+             class="alert-icon validtip-icon">密码长度6-20</span>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <i class="fa fa-mobile" aria-hidden="true" style="font-size:18px;"></i>
+    <input type="text" formControlName="mobile" [(ngModel)]="inputMobile" class="form-control" maxlength="11"
+           placeholder="请输入11位手机号码">
+    <p *ngIf="perRegisterForm.get('mobile').valid&&perRegisterForm.get('mobile').touched && !mobilePhoneRepeat"
+       class="fa fa-check faisok"></p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('mobile').valid||perRegisterForm.get('mobile').untouched">
+       <span [hidden]="!perRegisterForm.hasError('required',['mobile'])"
+            class="alert-icon validtip-icon">手机号是必填项</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="perRegisterForm.get('mobile').valid||perRegisterForm.get('mobile').pristine">
+       <span [hidden]="!perRegisterForm.hasError('mobilePhone',['mobile'])||perRegisterForm.get('mobile').value==''"
+            class="alert-icon validtip-icon">请输入正确手机号</span>
+    </p>
+    <p class="error" style="padding-left:20px;"
+       [hidden]="!mobilePhoneRepeat">
+      <span class="alert-icon validtip-icon">该手机号码已被注册，请更换手机号码</span>
+    </p>
+    <!-- <p *ngIf="checkPhoneMsg.isCan" class="fa fa-check faisok"></p>
+     <p class="error" style="margin-left:30px;" *ngIf="!checkPhoneMsg.isCan">{{checkPhoneMsg.msg}}</p>
+     <p class="error" *ngIf="mobilePhoneMsg"><span class='alert-icon validtip-icon'></span><span>该手机号码已被注册，请更换手机号码</span></p>
+     <p class="w5c-error" *ngIf="emptyPhoneMsg">手机号码不能为空</p>-->
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-8 col-xs-9" style="padding: 0;">
+      <i class="fa fa-key" aria-hidden="true" style="left:20px;"></i>
+      <input type="text" id="msgCode" formControlName="verificationCode" class="form-control" maxlength="6"
+             placeholder="请输入验证码"
+             required="">
+      <p class="error"><span>{{errorMsg}}</span></p>
+    </div>
+    <div class="col-md-4 col-xs-3">
+      <timer-button class="getCode" [sendType]="3" [phoneNum]="inputMobile"></timer-button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="agreed" style="color:#fff;">
+      <input type="checkbox" id="agreed" formControlName="agreed" [(ngModel)]="isagreed" required
+             style="height: auto;margin-right: 8px;vertical-align: text-bottom;">
+      同意并遵守<a routerLink="/terms-service" target="_blank">{{ 'register.agreement' | translate }}</a>
+    </label>
+    <span *ngIf="!isagreed" style="padding-left: 20px;color: #f00;display: block;"> 请阅读并同意服务条款</span>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="perRegisterForm.invalid||isDesabledButton" class="btn btn-svoc login-btn">注 册
+    </button>
+    <div style="margin-top: 10px;">
+      <p class="pull-right forgetpsd" style="color:#fff;">已有账号？<a routerLink="/login">登 录</a></p>
+    </div>
+  </div>
+</form>

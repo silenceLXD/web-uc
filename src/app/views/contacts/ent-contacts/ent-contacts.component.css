@@ -1,0 +1,35 @@
+.contactsMenuTitle {
+  cursor: pointer;
+  font: 12px/31px 宋体;
+  /* text-align: center; */
+  padding: 7px 0px 7px 20px;
+  /* font-weight: bold; */
+  color: #333333;
+  background-color: #d5d5d5;
+}
+
+.fa-caret-right {
+  margin-right: 7px;
+}
+
+.fa-folder {
+  margin-right: 7px;
+}
+
+.contactsMenu {
+  /* box-shadow: 1px 1px 10px #eee; */
+}
+
+
+.isNavActive {
+  background: rgb(7, 162, 232);
+  color: #fff;
+}
+
+.nz-menu-ul {
+  transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  -webkit-transform: translate(-100%, 0);
+  -o-transform: translate(-100%, 0);
+  -moz-transform: translate(-100%, 0);
+}

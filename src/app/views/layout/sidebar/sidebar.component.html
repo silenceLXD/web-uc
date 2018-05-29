@@ -1,0 +1,32 @@
+<nav class="sidebar-menu col-md-2" [ngClass]="bgColor">
+  <ul class="nav">
+    <li *ngFor="let item of sidebarData;let i=index">
+      <span class="menu-header" *ngIf="item.parentId==-1">{{item.resDesc}}
+        <i class="fa fa-angle-right pull-right"></i>
+      </span>
+      <a *ngIf="item.parentId!=-1&&item.resUrl!='book'" [routerLink]="[item.prefixUrl+item.resUrl]"
+         [queryParams]="item.resUrl=='noJurisdiction'?{noJurisdiction:i}:''"
+         (click)="redirectTo('/page/'+item.prefixUrl+item.resUrl,'/page/loading',i)"
+         routerLinkActive="active">
+        <!-- <i class="fa icon-{{item.resName}}"></i> -->
+        <span> {{item.resDesc}}</span>
+        <span class="pull-right-container" *ngIf="item.children">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <a *ngIf="item.parentId!=-1&&item.resUrl=='book'" [routerLink]="[item.prefixUrl+item.resUrl,0,0]"
+         routerLinkActive="active" (click)="redirectTo('/page/'+item.prefixUrl+item.resUrl+'/0/0','/page/loading',i)">
+        <!-- <i class="fa icon-{{item.resName}}"></i> -->
+        <span> {{item.resDesc}}</span>
+        <span class="pull-right-container" *ngIf="item.children">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul *ngIf="item.children" class="child-menu">
+        <li *ngFor="let child of item.children">
+          <a routerLink="{{item.resUrl}}"><i class="fa fa-circle-o"></i> home</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
